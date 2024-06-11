@@ -110,8 +110,8 @@ public class Main {
 		pq = new PriorityQueue<>();
 		
 		// 5x5에서 3x3만큼 큐브를 돈다.
-		for(int y = 1; y < 3; y++) {
-			for(int x = 1; x < 3; x++) {
+		for(int y = 1; y <= 3; y++) {
+			for(int x = 1; x <= 3; x++) {
 				
 				for(int i = 1; i <= 3; i++) {
 					int[][] copyMap = rotation90(x, y, i);
