@@ -111,6 +111,7 @@ public class Main {
 		
 		// i-1번 기사에게 d방향으로 이동하는 명령
 		for(int i = 0; i < q; i++) {
+			
 			st = new StringTokenizer(br.readLine());
 			int idx = Integer.parseInt(st.nextToken()) - 1;
 			int d = Integer.parseInt(st.nextToken());
@@ -142,6 +143,9 @@ public class Main {
 				int nx = pos.x + dx[d];
 				int ny = pos.y + dy[d];
 				
+//				if(!isRange(nx, ny)) {
+//					System.out.println(knight.id +"가 범인");
+//				}
 				// 기사 지도 위치 업데이트
 				knightMap[ny][nx] = knight.id;
 				
@@ -167,7 +171,10 @@ public class Main {
 	
 	public static void moveCheck(int idx, int d) {
 		// 현재 기사가 지도에서 아웃된 기사면 움직이지 않는다.
-		if(list.get(idx).isOut) return;
+		if(list.get(idx).isOut) {
+			//System.out.println(list.get(idx).id + "는 사라진 기사입니다.");
+			return;
+		}
 		
 		// 움직일 기사 목록에 추가한다.
 		set.add(idx);
@@ -179,15 +186,8 @@ public class Main {
 			int nx = pos.x + dx[d];
 			int ny = pos.y + dy[d];
 			
-			// 움직일 범위가 지도 바깥이라면 아웃처리하고 더 이상 진행하지 않는다.
-			if(!isRange(nx, ny)) {
-				list.get(idx).dead(knightMap);
-				set.remove(idx);
-				return;
-			}
-			
 			// 벽이라면 다 초기화하고 진행하지 않는다.
-			if(map[ny][nx] == 2) {
+			if(!isRange(nx, ny) || map[ny][nx] == 2) {
 				set.clear();
 				return;
 			}
