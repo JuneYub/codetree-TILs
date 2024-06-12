@@ -116,12 +116,26 @@ public class Main {
 			int idx = Integer.parseInt(st.nextToken()) - 1;
 			int d = Integer.parseInt(st.nextToken());
 			
+			//System.out.println("==========================");
+			//System.out.println(idx+1 + " " + d);
+			
 			// 움직일 범위를 백트래킹을 활용해 탐색한다.
 			moveCheck(idx, d);
+			
+			if(set.size() == 0) {
+				//System.out.println("벽이 있네");
+			}
 			
 			// 벽에 걸리지 않았으면 set에는 기사들이 들어가 있을 것이다.
 			doMove(idx, d);
 			
+//			for(int y = 0; y < l; y++) {
+//				for(int x = 0; x< l; x++) {
+//					System.out.print(knightMap[y][x] + " ");
+//				}
+//				System.out.println();
+//			}
+//			
 			// set은 초기화해준다.
 			set.clear();
 		}
@@ -196,6 +210,7 @@ public class Main {
 			if(knightMap[ny][nx] != 0 && knightMap[ny][nx] != list.get(idx).id && !set.contains(knightMap[ny][nx]-1)) {
 				moveCheck(knightMap[ny][nx]-1, d);
 			}
+			if(set.size() == 0) return;
 		}
 		
 		
