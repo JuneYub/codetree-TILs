@@ -180,7 +180,7 @@ public class Main {
 			int ny = pos.y + dy[d];
 			
 			// 움직일 범위가 지도 바깥이라면 아웃처리하고 더 이상 진행하지 않는다.
-			if(!isRange(nx, nx)) {
+			if(!isRange(nx, ny)) {
 				list.get(idx).dead(knightMap);
 				set.remove(idx);
 				return;
