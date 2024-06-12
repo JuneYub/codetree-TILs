@@ -182,6 +182,7 @@ public class Main {
 			// 움직일 범위가 지도 바깥이라면 아웃처리하고 더 이상 진행하지 않는다.
 			if(!isRange(nx, nx)) {
 				list.get(idx).dead(knightMap);
+				set.remove(idx);
 				return;
 			}
 			
