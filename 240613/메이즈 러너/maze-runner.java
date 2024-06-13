@@ -160,18 +160,25 @@ public class Main {
 				bottomY = y + p.between;
 				if(isRange(bottomX, bottomY)) {
 					
-					boolean flag = true;
-					// 출구가 범위내에 있는가?
-					flag = flag && (y <= exitY && exitY <= bottomY && x <= exitX && exitX <=bottomX);
-					// 현재 사람이 범위내에 있는가?
-					flag = flag && (y <= p.position.y && p.position.y <= bottomY && x <= p.position.x && p.position.x <=bottomX);
 					
-					// 좌측 상단 x,y찾음
-					if(flag) {
-						topX = x;
-						topY = y;
-						break find;
+					// 출구가 범위내에 있는가?
+					if (y <= exitY && exitY <= bottomY && x <= exitX && exitX <=bottomX) {
+						// 현재 사람이 범위내에 있는가?
+						for(Person person : people) {
+							if(!person.isExit) {
+								if (y <= person.position.y && person.position.y <= bottomY && x <= person.position.x && person.position.x <=bottomX) {
+	
+									topX = x;
+									topY = y;
+									break find;
+									
+								} 
+							}
+						}
 					}
+					
+					
+
 				}
 			}
 		}
@@ -187,15 +194,14 @@ public class Main {
 			copyMap[y] = map[y].clone();
 		}
 		
+
 		for(int y= 0; y < width; y++) {
 			for(int x = 0; x < width; x++) {
 				int orgY = topY +y;
 				int orgX = topX + x;
 				int copyY = topY + width-1-x;
 				int copyX = topX + y;
-				if(orgY >= 12 || orgX >= 12 || copyY >= 12 || copyX >= 12) {
-					System.out.println("sdsd");
-				}
+				
 				map[orgY][orgX] = copyMap[copyY][copyX];
 				
 				Position pos = new Position(copyX, copyY);
@@ -211,7 +217,7 @@ public class Main {
 
 			}
 		}
-		
+			
 		for(int y= 0; y < width; y++) {
 			for(int x = 0; x < width; x++) {
 				if(map[topY + y][topX + x] > 0) {
@@ -224,6 +230,17 @@ public class Main {
 				}
 			}
 		}
+		
+//		System.out.println();
+//		System.out.println(topY + " " + topX +" 에서" + width + " 만큼 회전");
+//		System.out.println();
+//		for(int y= 0; y < n; y++) {
+//			for(int x = 0; x < n; x++) {
+//				System.out.print(map[y][x] + " ");
+//			}
+//			System.out.println();
+//		}
+//		System.out.println();
 		
 		people.clear();
 		
@@ -273,9 +290,15 @@ public class Main {
 					continue;
 				}
 				
+				//System.out.println(person.position.y + " " + person.position.x + " 에서");
 				// 사람이동
 				person.position.x = moveX;
 				person.position.y = moveY;
+				
+				//System.out.println(person.position.y + " " + person.position.x + " 으로 이동");
+//				if(person.position.x == exitX && person.position.y == exitY) {
+//					System.out.println("도착");
+//				}
 				
 				// 출구까지의 거리 업데이트
 				person.updateBetween(exitX, exitY);
