@@ -50,8 +50,8 @@ class Person implements Comparable<Person>{
 		return this.between - p.between;
 	}
 	
-	public void updateBetween(int eitX , int exitY) {
-		this.between = (Math.abs(eitX - this.position.x) + Math.abs(exitY - this.position.y));	
+	public void updateBetween(int exitX , int exitY) {
+		this.between = Math.max(Math.abs(exitY - this.position.y), Math.abs(exitX - this.position.x));	
 	}
 }
 
@@ -118,11 +118,12 @@ public class Main {
 			
 			// 참가자 이동 체크
 			move();
+			if(livePeople==0) break;
 			// 가장 작은 정사각형 구하기
 			rotationSquare();
 			// 회전
 			
-			if(livePeople==0) break;
+			
 		}
 		
 		printAns();
@@ -192,6 +193,9 @@ public class Main {
 				int orgX = topX + x;
 				int copyY = topY + width-1-x;
 				int copyX = topX + y;
+				if(orgY >= 12 || orgX >= 12 || copyY >= 12 || copyX >= 12) {
+					System.out.println("sdsd");
+				}
 				map[orgY][orgX] = copyMap[copyY][copyX];
 				
 				Position pos = new Position(copyX, copyY);
