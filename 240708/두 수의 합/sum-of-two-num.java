@@ -30,7 +30,14 @@ public class Main {
             int num2 = k-num;
 
             if(map.containsKey(num) && map.containsKey(num2)) {
-                result += (map.get(num) * map.get(num2));
+
+                if(num == num2) {
+                    result += (num*(num-1)) / 2;
+                } else {
+                    result += (map.get(num) * map.get(num2));
+                }
+
+                
                 map.remove(num);
                 map.remove(num2);
             }
