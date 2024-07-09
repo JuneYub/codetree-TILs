@@ -23,7 +23,7 @@ public class Main {
             }
         }
         if(isNone) {
-            System.out.println("none");
+            System.out.println("None");
         }
         
 
