@@ -14,12 +14,18 @@ public class Main {
             map.put(c, map.getOrDefault(c, 0) + 1);
         }
 
+        boolean isNone = true;
         for(char c : array) {
             if(map.get(c) == 1) {
+                isNone = false;
                 System.out.println(c);
                 break;
             }
         }
+        if(isNone) {
+            System.out.println("none");
+        }
+        
 
 
 
