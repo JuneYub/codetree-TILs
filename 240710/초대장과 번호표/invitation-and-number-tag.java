@@ -25,23 +25,22 @@ public class Main {
 
             for(int j = 0; j < cnt; j++) {
                 int num = Integer.parseInt(st.nextToken());
-                if(j == 0) {
-                    total.add(num);
-                }
                 array[i].add(num);
             }
         }
-
-        Arrays.sort(array, new Comparator<HashSet<Integer>>(){
-            public int compare(HashSet<Integer> a, HashSet<Integer> b) {
-                if(a == null && b == null) return 0;
-                if(a == null) return -1;
-                if(b == null) return 1;
-                return a.size() - b.size();
-            }
-        });
+        
+        total.add(1);
 
         while(true) {
+
+            Arrays.sort(array, new Comparator<HashSet<Integer>>(){
+                public int compare(HashSet<Integer> a, HashSet<Integer> b) {
+                    if(a == null && b == null) return 0;
+                    if(a == null) return -1;
+                    if(b == null) return 1;
+                    return a.size() - b.size();
+                }
+            });
 
             int orgSize = total.size();
             for(HashSet<Integer> set : array) {
@@ -49,6 +48,7 @@ public class Main {
                     set.removeAll(total);
                     if (set.size() == 1) {
                         total.addAll(set);
+                        set.clear();
                     }
                 }
             }
@@ -57,7 +57,6 @@ public class Main {
                 break;
             }
         }
-
         System.out.println(total.size());
 
     }
