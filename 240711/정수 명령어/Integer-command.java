@@ -7,9 +7,9 @@ public class Main {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         int t = Integer.parseInt(br.readLine());
         StringTokenizer st;
-        TreeSet<Integer> tree = new TreeSet<Integer>();
+        
         for(int i = 0; i < t; i++) {
-
+            TreeSet<Integer> tree = new TreeSet<Integer>();
             int n = Integer.parseInt(br.readLine());
 
             for(int j = 0; j < n; j++) {
