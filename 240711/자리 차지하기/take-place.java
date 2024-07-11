@@ -21,9 +21,11 @@ public class Main {
         for(int i = 0; i < n; i++) {
             int num = Integer.parseInt(st.nextToken());
             if(tree.floor(num) != null) {
-                
+                //System.out.println(tree.floor(num));
                 tree.remove(tree.floor(num));
                 cnt++;
+            } else {
+                break;
             }
         }
         System.out.println(cnt);
