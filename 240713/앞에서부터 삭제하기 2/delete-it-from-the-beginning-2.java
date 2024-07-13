@@ -13,7 +13,7 @@ public class Main {
         arr = new int[n];
         minArr= new int[n];
 
-        int sum = 0;
+        double sum = 0.0;
         StringTokenizer st = new StringTokenizer(br.readLine());
         for(int k = 0; k < n; k++) {
             int num = Integer.parseInt(st.nextToken());
