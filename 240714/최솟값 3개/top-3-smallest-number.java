@@ -18,15 +18,14 @@ public class Main {
                 sb.append(-1 + "\n");
             } else {
                 
-                long a = pq.poll();
-                long b = pq.poll();
-                long c = pq.poll();
-                long result = a*b*c;
-                sb.append(result + "\n");
+                int a = pq.poll();
+                int b = pq.poll();
+                int c = pq.poll();
+                sb.append((long)a*b*c + "\n");
 
-                pq.add((int)a);
-                pq.add((int)b);
-                pq.add((int)c);
+                pq.add(a);
+                pq.add(b);
+                pq.add(c);
             }
         }
 
