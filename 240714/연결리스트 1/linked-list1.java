@@ -54,6 +54,7 @@ public class Main {
                     curr.prev = newNode;
                 } else {
                     curr.prev = newNode;
+                    newNode.next = curr;
                 }
 
             } else if(num == 2) {
@@ -68,6 +69,7 @@ public class Main {
                     newNode.prev = curr;
                 } else {
                     curr.next = newNode;
+                    newNode.prev = curr;
                 }
 
 
