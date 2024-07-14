@@ -63,48 +63,41 @@ public class Main {
     }
 
     public static void connect(Node s, Node e) {
-        s.next = e;
-        e.prev = s;
+        if(s != null) {
+        	s.next = e;
+        }
+    	if(e != null) {
+    		e.prev = s;
+    	}
+        
     }
 
-    public static void changeNodePair(Node s1, Node e1, Node s2, Node e2) {
-        Node beforeS1 = s1.prev;
-        Node AfterE1 = e1.next;
-        Node beforeS2 = s2.prev;
-        Node AfterE2 = e2.next;
+    public static void changeNodePair(Node a, Node b, Node c, Node d) {
+        // c의 이전 노드는 a의 이전 노드가 된다.
+    	Node after_prevA = c.prev;
+    	Node after_nextB = d.next;
+    	
+    	Node after_prevC = a.prev;
+    	Node after_nextD = b.next;
         
-        if(e1.next == s2) {
-        	if(beforeS1 != null) {
-        		beforeS1.next = s2;
-        		s2.prev = beforeS1;
-        		e2.next = s1;
-        		s1.prev = e2;
-        	}
-        	
-        	if(AfterE2 != null) { // 끝이 null이 아니라면
-        		e1.next = AfterE2;
-        		AfterE2.prev = e1;
-        	}
-        } else {
-        
-	        if(beforeS1.next != null) {
-	        	beforeS1.next = s2;
-	        }
-            
-            s2.prev = beforeS1;
-            AfterE1.prev = e2;
-            e2.next = AfterE1;
-	        
-            beforeS2.next = s1;
-            s1.prev = beforeS2;
-            
-            if(AfterE2 != null) {
-            	AfterE2.prev = e1;
-            }
-            
-            e1.next = AfterE2;
-
+    	// b 다음 c
+        if(b.next == c) {
+        	after_prevA = d;
+        	after_nextD = a;
         }
+        
+        // d 다음 a
+        if(d.next == a) {
+        	after_nextB = c;
+        	after_prevC = b;
+        }
+        
+        connect(after_prevA, a);
+        connect(b, after_nextB);
+        
+        connect(after_prevC,  c);
+        connect(d, after_nextD);
+
     }
 
 }
