@@ -84,18 +84,21 @@ public class Main {
     public static void beforeRand(int numA, int count) {
         // 시작 노드
         Node initNode = map.get(numA);
+        // 시작 노드의 왼쪽
         Node curr = initNode.left;
 
         for(int i = 0; i < count; i++) {
             Node newNode = new Node(idx);
             map.put(idx++, newNode);
+            // 현재 노드 <==> 새로운 노드 연결
             if(newNode != null && curr != null) {
-                conn(newNode, curr);
+                conn(curr, newNode);
             }
             // 현재 노드는 다음 노드로 변경해준다.
             curr = newNode;
         }
 
+        // 왼쪽부터 연결해왔고 이제 시작노드와 현재 노드 연결
         conn(curr, initNode);
     }
 }
