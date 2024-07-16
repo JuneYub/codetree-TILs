@@ -11,7 +11,7 @@ class Node {
     }
 
     public String printName() {
-        if(next == null || prev == null || next.name == prev.name) {
+        if((next == null && prev == null) || (next.name == prev.name)) {
             return "-1";
         } else {
             return prev.name + " " + next.name;
