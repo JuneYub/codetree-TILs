@@ -11,7 +11,7 @@ class Node {
     }
 
     public String printName() {
-        if((next == null && prev == null) || (next.name == prev.name)) {
+        if((next == null || prev == null) || (next.name == prev.name)) {
             return "-1";
         } else {
             return prev.name + " " + next.name;
@@ -59,7 +59,7 @@ public class Main {
                 Node pinNext = pin.next;
                 if(pinNext != null) {
                     pin.next = pinNext.next;
-                    pinNext.prev = pin;
+                    pinNext.next.prev = pin;
 
                     pinNext.prev = null;
                     pinNext.next = null;
