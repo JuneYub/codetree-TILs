@@ -43,29 +43,26 @@ public class Main {
 
 
                     // A그룹 문자열 생성
-                    for (int idx = 0; idx < 3; idx++) {
+                    for (int idx = 0; idx < n; idx++) {
                         String s = makeAChars(idx, i, j, k);
                         aSet.add(s);
                     }
 
 
                     // B그룹 문자열 생성
-                    String b0 = makeBChars(0, i, j, k);
-                    if(aSet.contains(b0)) continue;
-                    String b1 = makeBChars(1, i, j, k);
-                    if(aSet.contains(b1)) continue;
-                    String b2 = makeBChars(2, i, j, k);
-                    if(aSet.contains(b2)) continue;
-
-
-                    // B로 생성한 문자열이 A그룹에 존재하는지 확인
+                    boolean flag = true; 
+                    for(int idx = 0; idx < n; idx++) {
+                        if(aSet.contains(makeBChars(idx, i, j, k))) {
+                            flag = false;
+                            break;
+                        }
+                    }
                     
-                    
-                    
+                    if(flag) {
+                        // A그룹과 B그룹을 구분할 수 있다면? 개수 증가시키기
+                        count++;
+                    }
 
-
-                    // A그룹과 B그룹을 구분할 수 있다면? 개수 증가시키기
-                    count++;
                 }
             }
         }
