@@ -2,6 +2,8 @@ import java.io.*;
 import java.util.*;
 
 public class Main {
+
+    public static int[] prefixSum;
     public static void main(String[] args) throws Exception{
         
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
@@ -15,36 +17,25 @@ public class Main {
         int b = Integer.parseInt(st.nextToken());
 
         int[] arr = new int[n+1];
-        Arrays.fill(arr, 1);
-        arr[0] = 0;
 
         for(int i = 0; i < b; i++) {
             int num = Integer.parseInt(br.readLine());
-            arr[num] = 0;
+            arr[num] = 1;
         }
 
-        int[] prefixSum = new int[n+1];
+        prefixSum = new int[n+1];
         for(int i = 1; i <= n; i++) {
-            if(arr[i] == 0) {
-                prefixSum[i] = 0;
-                continue;
-            }
-            prefixSum[i] = prefixSum[i-1] + 1;  
+            prefixSum[i] = prefixSum[i-1] + arr[i];  
         }
 
-        int max = 0;
-
-        for(int i = 0; i <= n; i++) {
-            if(prefixSum[i] == 0) continue;
-            for(int j = i+1; j <= n; j++) {
-                if(prefixSum[j] == 0) continue;
-                max = Math.max(prefixSum[i] + prefixSum[j], max);
-
-            }
+        int ans = Integer.MAX_VALUE;
+        for(int i = 1; i <= n - k + 1; i++) {
+            ans = Math.min(ans, getSum(i, i + k -1));
         }
+        System.out.print(ans);
+    }
 
-        System.out.print(k-max);
-
-
+    public static int getSum(int s, int e) {
+        return prefixSum[e] - prefixSum[s-1];
     }
 }
