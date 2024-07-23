@@ -30,7 +30,7 @@ public class Main {
             st = new StringTokenizer(br.readLine());
             int s = Integer.parseInt(st.nextToken());
             int e = Integer.parseInt(st.nextToken());
-
+            if(s - 1 < 0) s = 1;
             int cnt = prefixSum[e] - prefixSum[s-1];
             sb.append(cnt+"\n");
         }
