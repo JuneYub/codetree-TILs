@@ -137,7 +137,7 @@ public class Main {
             // 구간 내 점의 개수를 
             // 누적합을 이용하여 계산합니다.
             int ans = getSum(newX1, newY1, newX2, newY2);
-            sb.append(ans);
+            sb.append(ans+"\n");
         }
         System.out.println(sb);
 
