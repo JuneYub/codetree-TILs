@@ -29,13 +29,9 @@ public class Main {
     public static final int m = 9;
     public static int n, q;
 
-//    public static int[][] prefixSum = new int[m+2][m+2];
-//    public static Pair[] points = new Pair[MAX_N];
-//    public static Tuple[] queries = new Tuple[MAX_Q];
-
-    public static int[][] prefixSum;
-    public static Pair[] points;
-    public static Tuple[] queries;
+    public static int[][] prefixSum = new int[m+2][m+2];
+    public static Pair[] points = new Pair[MAX_N];
+    public static Tuple[] queries = new Tuple[MAX_Q];
 
     public static TreeSet<Integer> tree = new TreeSet<>();
     public static HashMap<Integer, Integer> mapper = new HashMap<>();
@@ -72,10 +68,6 @@ public class Main {
 
         n = Integer.parseInt(st.nextToken());
         q = Integer.parseInt(st.nextToken());
-
-        prefixSum = new int[10][10];
-        points = new Pair[n];
-        queries = new Tuple[q];
 
         for(int i = 0; i < n; i++) {
             st = new StringTokenizer(br.readLine());
