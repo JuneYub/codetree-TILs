@@ -42,7 +42,7 @@ public class Main {
         if(ceiling != null) {
             return mapper.get(ceiling);
         } else {
-            return tree.size() + 1; // x보다 크거나 같은 숫자가 없다? 그러면 현재 그러면 걍 점이 찍힌 모든 범위보다 큰 숫자로 리턴
+            return (int)tree.size() + 1; // x보다 크거나 같은 숫자가 없다? 그러면 현재 그러면 걍 점이 찍힌 모든 범위보다 큰 숫자로 리턴
         }
     }
 
