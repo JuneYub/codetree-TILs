@@ -51,15 +51,18 @@ public class Main {
         }
     
         int max = Integer.MIN_VALUE;
-        for(int i = 1; i <= n-2; i++) {
-            max = Math.max(max, ls[i-1] + rs[i+1] + p[i]);
-            max = Math.max(max, ls[i-1] + rs[i+1] + h[i]);
-            
-            max = Math.max(max, lp[i-1] + rp[i+1] + s[i]);
-            max = Math.max(max, lp[i-1] + rp[i+1] + h[i]);
+        for(int i = 0; i <= n-2; i++) {
+            // 
+            max = Math.max(max, ls[i] + (lp[n-1] - lp[i]) );
+            max = Math.max(max, ls[i] + (lh[n-1] - lh[i]) );
 
-            max = Math.max(max, lh[i-1] + rh[i+1] + s[i]);
-            max = Math.max(max, lh[i-1] + rh[i+1] + p[i]);
+            
+            max = Math.max(max, lp[i] + (ls[n-1] - ls[i]) );
+            max = Math.max(max, lp[i] + (lh[n-1] - lh[i]) );
+
+            
+            max = Math.max(max, lh[i] + (lp[n-1] - lp[i]) );
+            max = Math.max(max, lh[i] + (ls[n-1] - ls[i]) );
         }
         
         max = Math.max(max, ls[n-1]);
