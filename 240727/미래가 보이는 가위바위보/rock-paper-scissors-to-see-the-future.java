@@ -61,6 +61,10 @@ public class Main {
             max = Math.max(max, lh[i-1] + rh[i+1] + s[i]);
             max = Math.max(max, lh[i-1] + rh[i+1] + p[i]);
         }
+        
+        max = Math.max(max, ls[n-1]);
+        max = Math.max(max, lp[n-1]);
+        max = Math.max(max, lh[n-1]);
 
         System.out.print(max);
     }
