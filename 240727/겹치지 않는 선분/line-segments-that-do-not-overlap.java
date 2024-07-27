@@ -36,7 +36,7 @@ public class Main {
         int[] r = new int[n];
         int[] l = new int[n];
 
-        l[0] = lines[0].x1;
+        l[0] = lines[0].x2;
         r[n-1] = lines[n-1].x2;
 
         // 좌측에서의 최대 x2보다 현재 x2가 커야함
@@ -57,10 +57,12 @@ public class Main {
 
         int ans = 0;
         for(int i = 0; i < n; i++) {
-            System.out.println(lines[i].x2 + " " + l[i] + " " + r[i]);
+            //System.out.print(lines[i].x2 + " " + l[i] + " " + r[i]);
             if(lines[i].x2 >= l[i] && lines[i].x2 <= r[i]) {
+                //System.out.print(" o");
                 ans++;
             }
+            //System.out.println();
         }
         System.out.print(ans);
 
