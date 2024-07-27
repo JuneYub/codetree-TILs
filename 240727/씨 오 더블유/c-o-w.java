@@ -70,6 +70,8 @@ public class Main {
 
         if(p2 > 0 && p3 > 0) {
             System.out.print(cr[p1] * or[p2] * wr[p3]);
+        } else {
+            System.out.print(0);
         }
         
     }
