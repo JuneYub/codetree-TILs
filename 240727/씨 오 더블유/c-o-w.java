@@ -30,49 +30,29 @@ public class Main {
             }
         }
 
-        cr[n-1] = c[n-1];
-        or[n-1] = o[n-1];
+        // w의 우측 누적합
         wr[n-1] = w[n-1];
-        for(int i = n-2; i >= 0; i--) {
-            cr[i] = cr[i+1] + c[i];
-            or[i] = or[i+1] + o[i];
+        for(int i = n-2; i>= 0; i--) {
             wr[i] = wr[i+1] + w[i];
         }
-
-        int p1 = 0; 
-        int p2 = 0;
-        int p3 = 0;
-        int idx = 0;
-        while(idx < n) {
-            if(c[idx] > 0) {
-                p1 = idx;
-                idx++;
-                break;
+        
+        // ow의 우측 누적합
+        or[n-1] = o[n-1];
+        for(int i = n-2; i>= 0; i--) {
+            if(o[i] == 1) {
+                or[i] = or[i+1] + wr[i];
+            } else {
+                or[i] = or[i+1];
             }
-            idx++;
-        }
-        while(idx < n) {
-            if(o[idx] > 0) {
-                p2 = idx;
-                idx++;
-                break;
-            }
-            idx++;
-        }
-        while(idx < n) {
-            if(w[idx] > 0) {
-                p3 = idx;
-                idx++;
-                break;
-            }
-            idx++;
-        }
-
-        if(p2 > 0 && p3 > 0) {
-            System.out.print(cr[p1] * or[p2] * wr[p3]);
-        } else {
-            System.out.print(0);
         }
         
+
+        int ans = 0;
+        for(int i = 0; i < n-2; i++) {
+            if(c[i] == 1) {
+                ans += or[i];
+            }
+        }
+        System.out.print(ans);
     }
 }
