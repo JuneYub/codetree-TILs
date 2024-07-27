@@ -47,7 +47,7 @@ public class Main {
         }
         
 
-        int ans = 0;
+        long ans = 0;
         for(int i = 0; i < n-2; i++) {
             if(c[i] == 1) {
                 ans += or[i];
