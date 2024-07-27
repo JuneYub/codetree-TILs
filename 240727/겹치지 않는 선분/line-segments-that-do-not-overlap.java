@@ -57,7 +57,7 @@ public class Main {
 
         int ans = 0;
         for(int i = 0; i < n; i++) {
-            //System.out.println(lines[i].x2 + " " + l[i] + " " + r[i]);
+            System.out.println(lines[i].x2 + " " + l[i] + " " + r[i]);
             if(lines[i].x2 >= l[i] && lines[i].x2 <= r[i]) {
                 ans++;
             }
