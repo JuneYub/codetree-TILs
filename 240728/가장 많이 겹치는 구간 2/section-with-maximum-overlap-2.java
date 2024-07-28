@@ -67,6 +67,6 @@ public class Main {
             }
         }
 
-        System.out.print(ans);
+        System.out.print(maxCnt);
     }
 }
