@@ -58,6 +58,7 @@ public class Main {
 
             // 겹치는 선의 개수의 최대값이 갱신된 경우
             if(cnt > maxCnt) {
+                maxCnt = cnt;
                 // 최대로 겹친 지역의 개수를 1로 초기화한다.
                 ans = 1;
             } else if(cnt == maxCnt) {
