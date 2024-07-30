@@ -26,7 +26,7 @@ public class Main {
             beforeChar = str.charAt(i);
         }
 
-        int result = 0;
+        long result = 0;
         beforeChar = str.charAt(0);
         for(int i = 1; i < n; i++) {
             if(beforeChar == str.charAt(i) && str.charAt(i) == '(') {
