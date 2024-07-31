@@ -28,7 +28,7 @@ public class Main {
         }
 
         // 이제 필요한 에너지를 구한다. need에서 필요한 에너지와 minCharge 를 곱한 값을 누적한다.
-        int ans = 0;
+        long ans = 0;
         for(int i = 0; i < n-1; i++) {
             ans += minCharge[i] * need[i];
         }
