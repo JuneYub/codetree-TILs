@@ -13,7 +13,7 @@ public class Main {
         
         int n = Integer.parseInt(br.readLine());
         int[] arr = new int[n];
-        int[] prefixSum = new int[n];
+        long[] prefixSum = new long[n];
         
         prefixSum[0] = Integer.parseInt(br.readLine()); 
         for(int i = 1; i < n; i++) {
@@ -25,7 +25,7 @@ public class Main {
         int maxLen = 0;
         for(int i = 0; i < n; i++) {
             for(int j = n-1; j > i; j--) {
-                int num = (prefixSum[j] - prefixSum[i])%7;
+                long num = (prefixSum[j] - prefixSum[i])%7;
                 
                 if(num == 0) {
                     //System.out.println(j + " " + i);
