@@ -21,19 +21,26 @@ public class Main {
             prefixSum[i] = prefixSum[i-1] + arr[i];
             
         }
-        
-        int maxLen = 0;
+
+        long[] divine = new long[n];
         for(int i = 0; i < n; i++) {
-            for(int j = n-1; j > i; j--) {
-                long num = (prefixSum[j] - prefixSum[i])%7;
-                
-                if(num == 0) {
-                    //System.out.println(j + " " + i);
-                    maxLen = Math.max(maxLen, j-i);
-                } 
+            divine[i] = (prefixSum[i] % 7);
+            //System.out.print(divine[i] + " ");
+        }
+        //System.out.println();
+
+        long ans = 0;
+        HashMap<Long, Long> map = new HashMap<>();
+        for(int i = 0; i < n; i++) {
+            long num = divine[i];
+            if(map.get(num) == null) {
+                map.put(num, (long)i);
+            } else {
+                ans = Math.max(ans, (long)i - map.get(num));
             }
         }
-        System.out.println(maxLen);
+        
+        System.out.println(ans);
     
     }
 }
