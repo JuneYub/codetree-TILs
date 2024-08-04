@@ -17,12 +17,16 @@ public class Main {
         // 1 2 3 4 5
         
         int ans = 0;
+        int j = n;
         for(int i = 1; i <= n; i++) {
-            int j = i; 
-            while(j+1 <= n && (arr[i] + arr[j+1]) <= k) {
-                ans++;
-                j++;
+            
+            while(j != 1&& arr[i] + arr[j] > k) {
+                j--;
             }
+
+            if(j <= i) break;
+
+            ans += j - i;
         }
 
         System.out.print(ans);
