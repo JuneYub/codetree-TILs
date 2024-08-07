@@ -15,13 +15,19 @@ public class Main {
 
         int j = n;
         long minValue = Integer.MAX_VALUE;
+        
         for(int i = 1; i <= n; i++) {
+
+            //System.out.println(arr[i] + " " + arr[j]);
             
-            while(j > i && Math.abs(arr[i] + arr[j]) <= minValue) {
+            if(i < j) {
                 minValue = Math.min(Math.abs(arr[i] + arr[j]), minValue);
-                j--;
             }
-            
+
+            while(i < j-1 && arr[i] + arr[j] > 0) {
+                j--;
+                minValue = Math.min(minValue, Math.abs(arr[i] + arr[j]));
+            }
         }
         System.out.print(minValue);
     }
