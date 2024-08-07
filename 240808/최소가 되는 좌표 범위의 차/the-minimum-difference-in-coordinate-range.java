@@ -73,12 +73,13 @@ public class Main {
                 tree.add(new TargetPosition(positions[j].x, positions[j].y));
             }
 
-            if(getMax() - getMin() >= d) {
-                //System.out.println(positions[i].x + " " + positions[j].x);
-                ans = Math.min(ans, positions[j].x - positions[i].x);
+            if(getMax() - getMin() < d) {
+                break;
             }
+
+            ans = Math.min(ans, positions[j].x - positions[i].x);
             
-            tree.remove(new TargetPosition(tree.first().x, tree.first().y));
+            tree.remove(new TargetPosition(positions[i].x, positions[i].y));
 
         }
         if(ans == Integer.MAX_VALUE) {
