@@ -47,7 +47,7 @@ public class Main {
 
         }
         
-        if(arr[minIdx] != target) return -1;
+        if(minIdx == n) return -1;
         return minIdx+1;
     }
 }
