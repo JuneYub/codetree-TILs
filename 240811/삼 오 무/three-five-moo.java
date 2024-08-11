@@ -16,26 +16,25 @@ public class Main {
             while(idx % 3 == 0 || idx % 5 == 0) {
                 idx++;
             }
-            arr[i] = idx++;
+            idx++;
         }
-
 
         int left = 0;
         int right = n;
         int minIdx = n+1;
 
-        while(left <= right) {
-            int mid = (left + right) /2;
+        // while(left <= right) {
+        //     int mid = (left + right) /2;
 
-            if(arr[mid] >= n) {
-                minIdx = Math.min(minIdx, mid);
-                right = mid -1;
-            } else {
-                left = mid + 1;
-            }
-        }
+        //     if(arr[mid] >= n) {
+        //         minIdx = Math.min(minIdx, mid);
+        //         right = mid -1;
+        //     } else {
+        //         left = mid + 1;
+        //     }
+        // }
 
-        System.out.print(arr[n]);
+        System.out.print(idx-1);
         
 
     }
