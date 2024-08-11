@@ -8,32 +8,27 @@ public class Main {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         n = Integer.parseInt(br.readLine());
 
-        int idx = 1;
-        for(int i = 1; i <= n; i++) {
-            
-            while(idx % 3 == 0 || idx % 5 == 0) {
-                idx++;
+        int left = 1;
+        int right = Integer.MAX_VALUE;
+        int minIdx = Integer.MAX_VALUE;
+
+
+        while(left <= right) {
+            int mid = (left + right) /2;
+
+            if(excludeMooCnt(mid) >= n) {
+                right = mid - 1;
+                minIdx = Math.min(minIdx, mid);
+            } else {
+                left = mid + 1;
             }
-            idx++;
         }
+        System.out.print(minIdx);
+    }
 
-        int left = 0;
-        int right = n;
-        int minIdx = n+1;
+    public static long excludeMooCnt(long mid) {
+        long mooCnt = mid / 3 + mid / 5 - mid / 15;
 
-        // while(left <= right) {
-        //     int mid = (left + right) /2;
-
-        //     if(arr[mid] >= n) {
-        //         minIdx = Math.min(minIdx, mid);
-        //         right = mid -1;
-        //     } else {
-        //         left = mid + 1;
-        //     }
-        // }
-
-        System.out.print(idx-1);
-        
-
+        return mid - mooCnt;
     }
 }
