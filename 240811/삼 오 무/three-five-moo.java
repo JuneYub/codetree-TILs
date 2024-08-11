@@ -8,13 +8,13 @@ public class Main {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         n = Integer.parseInt(br.readLine());
 
-        int left = 1;
-        int right = Integer.MAX_VALUE;
-        int minIdx = Integer.MAX_VALUE;
+        long left = 1;
+        long right = Integer.MAX_VALUE;
+        long minIdx = Integer.MAX_VALUE;
 
 
         while(left <= right) {
-            int mid = (left + right) /2;
+            long mid = (left + right) /2;
 
             if(excludeMooCnt(mid) >= n) {
                 right = mid - 1;
