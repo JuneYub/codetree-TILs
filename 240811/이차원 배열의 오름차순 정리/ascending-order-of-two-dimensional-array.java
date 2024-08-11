@@ -2,8 +2,8 @@ import java.io.*;
 import java.util.*;
 
 public class Main {
-    static int n;
-    static int k;
+    static long n;
+    static long k;
     public static void main(String[] args) throws Exception {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         n = Integer.parseInt(br.readLine());
@@ -26,8 +26,8 @@ public class Main {
         System.out.print(midIdx);
     }
 
-    public static int getCount(long mid) {
-        int sum = 0;
+    public static long getCount(long mid) {
+        long sum = 0;
         // 행마다 돈다.
         for(int i = 1; i <= n; i++) {
             sum += Math.min(mid/i , n);
