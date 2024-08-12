@@ -16,8 +16,8 @@ public class Main {
         }
 
         long left = 1;
-        long right = 1_000_000_000;
-        long midIdx = 1_000_000_000;
+        long right = 1_000_000_000 * 100_000;
+        long midIdx = 1_000_000_000 * 100_000;;
         while(left <= right) {
             long mid = (left +right) / 2;
 
