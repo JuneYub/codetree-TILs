@@ -16,16 +16,18 @@ public class Main {
         }
 
         long left = 1;
-        long right = 1_000_000_000 * 100_000;
-        long midIdx = 1_000_000_000 * 100_000;;
-        while(left <= right) {
-            long mid = (left +right) / 2;
+        long right = 2_000_000_000;
+        long midIdx = 2_000_000_000;;
 
+        while(left <= right) {
+            long mid = (left + right) / 2;
             if( isPossible(mid) ) {
                 right = mid -1;
                 midIdx = Math.min(midIdx, mid);
+                
             } else {
                 left = mid + 1;
+                
             }
         }
 
@@ -37,6 +39,7 @@ public class Main {
         for(int i  = 0; i < m; i++) {
             cnt += (target / arr[i]);
         }
+        
         if(cnt >= n) return true;
         return false;
     }
