@@ -16,7 +16,7 @@ public class Main {
             arr[i] = Long.parseLong(br.readLine());
         }        
         
-
+        Arrays.sort(arr, 0, n);
         int left = 1;
         int right = 1_000_000_000;
         int maxIdx = 0; 
