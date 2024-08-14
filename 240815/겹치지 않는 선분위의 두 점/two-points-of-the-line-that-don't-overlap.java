@@ -48,7 +48,7 @@ public class Main {
 
         Arrays.sort(points);
 
-        long left = points[0].start;
+        long left = 1;
         long right = points[m-1].end;   
         long maxIdx = 0;
 
