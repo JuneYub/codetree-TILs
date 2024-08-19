@@ -48,10 +48,11 @@ class ColorTree {
 		
 		if(pid != -1) {
 			Node parent = nodes.get(pid);
-			if(parent.maxdepth < maxdepth) {
+			if(parent.maxdepth == 1) {
 				return false;
 			}
 		}
+		
 		
 		Node newNode = new Node(mid, pid, color, maxdepth);
 		nodes.put(mid, newNode);
@@ -60,6 +61,7 @@ class ColorTree {
 			roots.add(mid);
 		} else {
 			nodes.get(pid).children.add(newNode);
+			newNode.maxdepth = Math.min(nodes.get(pid).maxdepth-1, newNode.maxdepth);
 			updateAncestors(nodes.get(pid), color);
 		}
 		
@@ -181,7 +183,9 @@ public class Main {
 					//System.out.println(result);
 					break;
 			}
+			
+			
 		}
-        System.out.print(sb);
+		System.out.print(sb);
 	}
 }
