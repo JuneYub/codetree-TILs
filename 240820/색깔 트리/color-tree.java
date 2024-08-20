@@ -77,11 +77,13 @@ class ColorTree {
 		Node orgNode = nodes.get(mid);
 		Node currNode = orgNode;
 		int color = currNode.color;
-		
+		int lastUpdate = currNode.lastUpdate;
 		while(currNode.pid != -1) {
 			Node parent = nodes.get(currNode.pid);
-			if(parent.lastUpdate > orgNode.lastUpdate) {
+			
+			if(parent.lastUpdate > lastUpdate) {
 				color = parent.color;
+				lastUpdate = parent.lastUpdate;
 			}
 			currNode = parent;
 		}
