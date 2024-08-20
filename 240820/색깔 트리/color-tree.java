@@ -80,7 +80,7 @@ class ColorTree {
 		
 		while(currNode.pid != -1) {
 			Node parent = nodes.get(currNode.pid);
-			if(parent.lastUpdate > currNode.lastUpdate) {
+			if(parent.lastUpdate > orgNode.lastUpdate) {
 				color = parent.color;
 			}
 			currNode = parent;
