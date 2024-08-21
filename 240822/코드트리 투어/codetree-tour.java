@@ -6,15 +6,13 @@ class Product implements Comparable<Product> {
     int id;
     int revenue;
     int dest;
-    int cost;
     int profit;
 
-    public Product(int id, int revenue, int dest, int cost) {
+    public Product(int id, int revenue, int dest, int profit) {
         this.id = id;
         this.revenue = revenue;
         this.dest = dest;
-        this.cost = cost;
-        this.profit = revenue - cost;
+        this.profit = profit;
     }
     
     public int compareTo(Product p) {
@@ -77,12 +75,12 @@ public class Main {
 
     public static void addProduct(int id, int revenue, int dest) {
         isMade[id] = true;
-        int cost = D[dest];
-        pq.add(new Product(id, revenue, dest, cost));
+        int profit = revenue - D[dest];
+        pq.add(new Product(id, revenue, dest, profit));
     }
 
     public static void cancelProduct(int id) {
-        isCancel[id] = true;
+    	if(isMade[id]) isCancel[id] = true;
     }
 
     public static void dijkstra() {
