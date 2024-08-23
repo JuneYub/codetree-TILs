@@ -98,7 +98,7 @@ public class Main {
     			
     			exit.put(name, Math.max(exit.get(name), removeTime));
     			// 초밥이 사라지는 쿼리
-        		queue.add(new Queries(111, exit.get(name), -1, name, -1));
+        		queue.add(new Queries(111, removeTime, -1, name, -1));
     			
     		}
     		
